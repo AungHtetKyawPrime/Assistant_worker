@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/event"
+        android:icon="@drawable/ic_fast_forward_black_24dp"
+        android:title="Events" />
+
+    <item
+        android:id="@+id/memory"
+        android:icon="@drawable/ic_sd_storage_black_24dp"
+        android:title="Memory" />
+
+    <item
+        android:id="@+id/money"
+        android:icon="@drawable/ic_attach_money_black_24dp"
+        android:title="Money" />
+
+    <item
+        android:id="@+id/news"
+        android:icon="@drawable/ic_fiber_new_black_24dp"
+        android:title="Posts" />
+</menu>

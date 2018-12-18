@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date"
+        android:textColorHint="@color/colorAccent"
+        android:inputType="text"
+        android:maxLines="1"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/colorBlack"
+        android:padding="12dp"/>
+    <EditText
+        android:id="@+id/money_event_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=" အေၾကာင္းအရာ"
+        android:textColorHint="@color/colorAccent"
+        android:inputType="text"
+        android:maxLines="1"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/colorBlack"
+        android:padding="12dp"/>
+    <EditText
+        android:id="@+id/income"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Income"
+        android:textColorHint="@color/colorAccent"
+        android:inputType="number"
+        android:maxLines="1"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/colorBlack"
+        android:padding="12dp"/>
+    <EditText
+        android:id="@+id/outcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Outcome"
+        android:textColorHint="@color/colorAccent"
+        android:inputType="number"
+        android:maxLines="1"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/colorBlack"
+        android:padding="12dp"/>
+
+</LinearLayout>
