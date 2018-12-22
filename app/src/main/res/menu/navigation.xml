@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/event"
-        android:icon="@drawable/ic_fast_forward_black_24dp"
+        android:icon="@drawable/future_icon"
         android:title="Events" />
 
     <item

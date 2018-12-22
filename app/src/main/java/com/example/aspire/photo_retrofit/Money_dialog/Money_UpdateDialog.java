@@ -1,12 +1,15 @@
 package com.example.aspire.photo_retrofit.Money_dialog;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aspire.photo_retrofit.Data.MyDao;
@@ -17,9 +20,13 @@ import com.example.aspire.photo_retrofit.R;
 import com.example.aspire.photo_retrofit.adapter.future_Adapter;
 import com.example.aspire.photo_retrofit.adapter.money_Adapter;
 
+import java.util.Calendar;
+
 
 public class Money_UpdateDialog {
     private Context context;int n;int id;
+    String date;TextView money_date;
+    private int mYear, mMonth, mDay;
 
     public Money_UpdateDialog(Context context) {
         this.context = context;
@@ -31,11 +38,16 @@ public class Money_UpdateDialog {
         View subView = inflater.inflate(dialog_layout, null);
 
 
-        final EditText money_date = (EditText)subView.findViewById(R.id.date);
+         money_date = (TextView) subView.findViewById(R.id.date);
         final EditText event = (EditText)subView.findViewById(R.id.money_event_about);
         final EditText money_income = (EditText)subView.findViewById(R.id.income);
         final EditText money_outcome = (EditText)subView.findViewById(R.id.outcome);
-
+        money_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                init_date();
+            }
+        });
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("ဘယ္ အခ်က္ မ်ား ျပင္ ဆင္ ခ်င္ ပါ လဲ ဗ်ာ \uD83D\uDD8E ?");
@@ -44,7 +56,7 @@ public class Money_UpdateDialog {
         builder.setPositiveButton("အိုေက \uD83D\uDE09", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                final String date = money_date.getText().toString();
+
                 final String title = event.getText().toString();
                 String income_a = money_income.getText().toString();
                 String outcome_b = money_outcome.getText().toString();
@@ -73,6 +85,28 @@ public class Money_UpdateDialog {
             }
         });
         builder.show();
+    }
+    private void init_date() {
+
+        // Get Current Date
+        final Calendar c = Calendar.getInstance();
+        mYear = c.get(Calendar.YEAR);
+        mMonth = c.get(Calendar.MONTH);
+        mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(context,
+                new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        date=dayOfMonth+"-"+(monthOfYear+1)+"-"+year;
+
+                        money_date.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+
+                    }
+                }, mYear, mMonth, mDay);
+        datePickerDialog.show();
     }
 
 }

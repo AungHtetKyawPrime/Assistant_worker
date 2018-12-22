@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aspire.photo_retrofit.R;
@@ -29,8 +30,8 @@ public class Memory_UpdateDialog {
 
 
         final EditText nameField1 = (EditText)subView.findViewById(R.id.title);
-        final EditText nameField = (EditText)subView.findViewById(R.id.date);
-        nameField.setVisibility(View.INVISIBLE);
+        TextView date_text = (TextView) subView.findViewById(R.id.date);
+        date_text.setVisibility(View.INVISIBLE);
 
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);

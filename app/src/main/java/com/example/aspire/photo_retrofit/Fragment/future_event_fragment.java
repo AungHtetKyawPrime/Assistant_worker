@@ -25,6 +25,7 @@ import rjsv.floatingmenu.floatingmenubutton.FloatingMenuButton;
 
 public class future_event_fragment extends Fragment {
     RecyclerView future_event_list;
+    public static List<Model> data_noti;
     private future_Adapter adapter;
     FloatingMenuButton add_event;
     //public static int layout=R.layout.item_future_event;
@@ -55,6 +56,7 @@ public class future_event_fragment extends Fragment {
         });
         MyDao messageDao = (MyDao) MyDataBae.getInstance(getContext()).data();
         messageDao.getAllEvent().observe(getActivity(), (List<Model> data) -> {
+            data_noti=data;
             adapter=new future_Adapter(getContext(),data);//Send data to the future Adapter
             future_event_list.setAdapter(adapter);//Show these data on the recycler view
         });

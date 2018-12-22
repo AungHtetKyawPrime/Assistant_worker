@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aspire.photo_retrofit.R;
@@ -18,7 +19,7 @@ import com.example.aspire.photo_retrofit.memory_Data.Memory_Model;
 
 
 public class Memory_MessageDialog {
-
+    TextView date_text;
     private Context context;
 
     public Memory_MessageDialog(Context context) {
@@ -28,9 +29,8 @@ public class Memory_MessageDialog {
     public void addNewMessage(int dialog_layout){
         LayoutInflater inflater = LayoutInflater.from(context);
         View subView = inflater.inflate(dialog_layout, null);
-
-        final EditText nameField = (EditText)subView.findViewById(R.id.date);
-        nameField.setVisibility(View.INVISIBLE);
+        date_text=(TextView)subView.findViewById(R.id.date);
+        date_text.setVisibility(View.INVISIBLE);
         final EditText nameField1 = (EditText)subView.findViewById(R.id.title);
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("ဘာအေၾကာင္း အရာပါလဲ ခင္ဗ်ာ? \uD83D\uDE0A");

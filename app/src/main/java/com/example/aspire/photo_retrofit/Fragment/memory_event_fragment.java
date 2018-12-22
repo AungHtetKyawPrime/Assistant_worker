@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,9 +46,12 @@ public class memory_event_fragment extends Fragment {
         add_event.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Ok add", Toast.LENGTH_SHORT).show();
+
                 Memory_MessageDialog dialog = new Memory_MessageDialog(getContext());
+
                 dialog.addNewMessage(R.layout.dialog_layout);
+                Log.d("Memory dialog ","OK");
+                Toast.makeText(getContext(), "Ok add", Toast.LENGTH_SHORT).show();
             }
         });
         Memory_Dao messageDao = (Memory_Dao) Memory_DataBae.getInstance(getContext()).data();

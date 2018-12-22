@@ -1,7 +1,5 @@
 package com.example.aspire.photo_retrofit;
 
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -10,29 +8,35 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.aspire.photo_retrofit.Fragment.future_event_fragment;
 import com.example.aspire.photo_retrofit.Fragment.memory_event_fragment;
 import com.example.aspire.photo_retrofit.Fragment.money_event_fragment;
 import com.example.aspire.photo_retrofit.Fragment.news_posts_event_fragment;
-import com.example.aspire.photo_retrofit.Retrofit.Retrofit_api;
-import com.example.aspire.photo_retrofit.Retrofit.Retrofit_model;
-import com.example.aspire.photo_retrofit.Retrofit.retrofit_data;
-import java.util.List;
+import com.example.aspire.photo_retrofit.Noti.Noti_event;
 
+
+import java.util.concurrent.TimeUnit;
+
+
+import androidx.work.Constraints;
+import androidx.work.Data;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.PeriodicWorkRequest;
+import androidx.work.WorkManager;
 import hari.floatingtoast.FloatingToast;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
     private ListView mListView;
     ProgressBar myProgressBar;
-
+    PeriodicWorkRequest periodicWorkRequest;
+    OneTimeWorkRequest simpleRequest;
+    public static final String EXTRA_TITLE = "title";
+    public static final String EXTRA_TEXT = "text";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +50,31 @@ public class MainActivity extends AppCompatActivity {
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         loadFragment(new future_event_fragment());
+        periodicWorkRequest= new PeriodicWorkRequest.Builder(Noti_event.class, 6, TimeUnit.SECONDS)
+                .addTag("periodic_work")
+                .build();
+        Data data = new Data.Builder()
+                .putString(MainActivity.EXTRA_TITLE, "Aung Htet!")
+                .putString(MainActivity.EXTRA_TEXT, "I am Optimus Prime")
+                .build();
+        Constraints constraints = new Constraints.Builder()
+                .setRequiresCharging(true)
+                .build();
+        simpleRequest= new OneTimeWorkRequest.Builder(Noti_event.class)
+                .setInputData(data)
+                .setConstraints(constraints)
+                .addTag("simple_work")
+                .build();
+
+        Noti_event();
 
     }
+
+    private void Noti_event() {
+        WorkManager.getInstance().enqueue(periodicWorkRequest);
+        Log.d(" WorkManager Aung  ","Ok  ");
+    }
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
