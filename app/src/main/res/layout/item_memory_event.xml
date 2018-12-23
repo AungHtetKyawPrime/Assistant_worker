@@ -8,6 +8,7 @@
         android:layout_height="wrap_content"
         android:minHeight="90dp"
         android:layout_margin="4dp"
+        android:backgroundTint="#88c9fa"
         app:cardCornerRadius="5dp"
         app:cardElevation="4dp">
         <LinearLayout
@@ -37,7 +38,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Testing the font"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
                     android:textSize="18dp"/>
 
 

@@ -34,6 +34,6 @@ public class PieChart extends AppCompatActivity {
         PieData data = new PieData(year, dataSet);
         pieChart.setData(data);
         dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
-        pieChart.animateXY(5000, 5000);
+        pieChart.animateXY(1000, 1000);
     }
 }

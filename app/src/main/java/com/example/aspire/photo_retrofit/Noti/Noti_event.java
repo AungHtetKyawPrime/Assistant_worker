@@ -77,6 +77,7 @@ public class Noti_event extends Worker {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel("default", "Default", NotificationManager.IMPORTANCE_DEFAULT);
             notificationManager.createNotificationChannel(channel);
+            //This may have some noti problem
         }
         Date date = new Date();
         String strDateFormat = "hh:mm:ss a";

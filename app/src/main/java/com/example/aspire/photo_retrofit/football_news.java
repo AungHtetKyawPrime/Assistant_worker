@@ -27,7 +27,7 @@ public class football_news extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         news_view.setHasFixedSize(true);
         news_view.setLayoutManager(linearLayoutManager);
-        news_post= news_posts_event_fragment.football_post;
+        news_post= news_posts_event_fragment.premier;
         if (news_post.size()>0){
             news_adapter=new news_adapter(getApplicationContext(),news_post);}
         else {

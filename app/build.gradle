@@ -54,5 +54,6 @@ dependencies {
     implementation "android.arch.work:work-runtime:1.0.0-alpha04"
     implementation 'com.google.firebase:firebase-core:16.0.1'
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
+
 }
 apply plugin: 'com.google.gms.google-services'

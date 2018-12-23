@@ -50,7 +50,7 @@ public class bar_chart extends AppCompatActivity {
         year.add("Dec");
 
         BarDataSet bardataset = new BarDataSet(NoOfEmp, "No Of Employee");
-        chart.animateY(5000);
+        chart.animateY(2000);
         BarData data = new BarData( year, bardataset);
         bardataset.setColors(ColorTemplate.COLORFUL_COLORS);
 

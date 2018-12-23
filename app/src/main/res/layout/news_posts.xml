@@ -2,20 +2,22 @@
 <ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:floatingMenuActionButton="http://schemas.android.com/tools">
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         >
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:id="@+id/pose1"
             android:weightSum="2">
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="190dp"
+                android:layout_height="250dp"
                 android:layout_margin="5dp"
                 android:elevation="10dp"
                 app:cardCornerRadius="6dp"
@@ -28,15 +30,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Most Beautiful Mountains
-posts are here . . ."
-                    android:layout_marginTop="150dp"
+                    android:text="Beautiful Mountains Photos
+20 + "
+                    android:layout_marginTop="190dp"
+
                     android:textColor="#000"
                     />
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
+                android:layout_height="250dp"
                 android:layout_margin="5dp"
                 app:cardCornerRadius="6dp"
                 android:elevation="6dp"
@@ -47,11 +50,12 @@ posts are here . . ."
                     android:layout_height="wrap_content"
                     android:text="Toys photos can see here  . . ."
                     android:textColor="#333"
-                    android:layout_marginTop="130dp"/>
+                    android:layout_marginTop="180dp"/>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="130dp"
                     android:src="@drawable/toys"
+                    android:layout_marginTop="-12dp"
                     />
 
             </android.support.v7.widget.CardView>
@@ -60,10 +64,12 @@ posts are here . . ."
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:id="@+id/pose2"
+            android:layout_below="@+id/pose1"
             android:weightSum="2">
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
+                android:layout_height="250dp"
                 android:layout_margin="5dp"
                 android:elevation="10dp"
                 app:cardCornerRadius="6dp"
@@ -76,22 +82,22 @@ posts are here . . ."
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="World's Beautiful Flowers
-posts are here . . ."
-                    android:layout_marginTop="130dp"
+                    android:text="World's Beautiful Flowers"
+                    android:layout_marginTop="190dp"
                     android:textColor="#333"
                     />
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
+                android:layout_height="250dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 app:cardCornerRadius="6dp"
                 android:elevation="6dp"
                 android:id="@+id/plane"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                >
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="130dp"
@@ -100,37 +106,29 @@ posts are here . . ."
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Amazing Planes Photos are here . . ."
-                    android:layout_marginTop="135dp"
+                    android:layout_marginTop="190dp"
                     android:textColor="#000"/>
             </android.support.v7.widget.CardView>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:orientation="horizontal">
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/football">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="220dp"
-                    android:src="@drawable/football"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:textColor="#fff"
-                    android:fontFamily="cursive"
-                    android:textSize="28dp"
-                    android:text="You can Know The Update football news Here .. ."/>
-            </android.support.v7.widget.CardView>
-        </LinearLayout>
+
+        <rjsv.floatingmenu.floatingmenubutton.FloatingMenuButton
+            android:id="@+id/football"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:scaleType="centerInside"
+            android:background="@drawable/football_news"
+            floatingMenuActionButton:animationType="radial"
+            floatingMenuActionButton:dispositionEndAngle="360"
+            floatingMenuActionButton:dispositionStartAngle="0"
+            floatingMenuActionButton:subActionButtonRadius="100">
+        </rjsv.floatingmenu.floatingmenubutton.FloatingMenuButton>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:orientation="horizontal"
+            android:id="@+id/pose4"
+            android:layout_below="@id/pose2"
             android:weightSum="2">
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -179,6 +177,7 @@ posts are here . . ."
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:orientation="horizontal"
+            android:layout_below="@+id/pose4"
             android:weightSum="2">
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -225,5 +224,5 @@ Everyone can like this . . ."
                     />
             </android.support.v7.widget.CardView>
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 </ScrollView>

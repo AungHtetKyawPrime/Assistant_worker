@@ -34,10 +34,11 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import rjsv.floatingmenu.floatingmenubutton.FloatingMenuButton;
 
 
 public class news_posts_event_fragment extends Fragment {
-    CardView beach,mountain,animal,bird,flower,plane,toy,lake,football;
+    CardView beach,mountain,animal,bird,flower,plane,toy,lake;
     public static List<Retrofit_model.photo_data> main_post;
     public static List<news_model.news> football_post=new ArrayList<>();
     List<Retrofit_model.photo_data> beach_post=new ArrayList<>();
@@ -51,8 +52,8 @@ public class news_posts_event_fragment extends Fragment {
     public static List<news_model.news> laliga=new ArrayList<>();
     public static List<news_model.news> manu=new ArrayList<>();
     public static List<news_model.news> premier=new ArrayList<>();
-    ProgressDialog progressDialog;
     CatLoadingView mView;
+    FloatingMenuButton football_news_button;
     public news_posts_event_fragment(){
 
     }
@@ -88,7 +89,7 @@ public class news_posts_event_fragment extends Fragment {
         plane = (CardView) view.findViewById(R.id.plane);
         toy = (CardView) view.findViewById(R.id.toy);
         lake = (CardView) view.findViewById(R.id.lake);
-        football = (CardView) view.findViewById(R.id.football);
+        football_news_button=(FloatingMenuButton)view.findViewById(R.id.football);
         Retrofit_api api = retrofit_data.getRetrofitInstance().create(Retrofit_api.class);
         Call<Retrofit_model> beach_call = api.getbeaches();
         beach_call.enqueue(new Callback<Retrofit_model>() {
@@ -249,7 +250,7 @@ public class news_posts_event_fragment extends Fragment {
 
             }
         });
-        Call<news_model> primier_call=news.getlaliga();
+        Call<news_model> primier_call=news.getPremier();
         primier_call.enqueue(new Callback<news_model>() {
             @Override
             public void onResponse(Call<news_model> call, Response<news_model> response) {
@@ -264,7 +265,7 @@ public class news_posts_event_fragment extends Fragment {
 
             }
         });
-        football.setOnClickListener(new View.OnClickListener() {
+        football_news_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), football_news.class));
