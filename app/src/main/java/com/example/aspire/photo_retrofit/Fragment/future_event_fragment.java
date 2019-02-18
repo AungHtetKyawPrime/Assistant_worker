@@ -18,6 +18,7 @@ import com.example.aspire.photo_retrofit.Dialog.MessageDialog;
 import com.example.aspire.photo_retrofit.R;
 import com.example.aspire.photo_retrofit.adapter.future_Adapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import rjsv.floatingmenu.floatingmenubutton.FloatingMenuButton;
@@ -57,7 +58,11 @@ public class future_event_fragment extends Fragment {
         MyDao messageDao = (MyDao) MyDataBae.getInstance(getContext()).data();
         messageDao.getAllEvent().observe(getActivity(), (List<Model> data) -> {
             data_noti=data;
-            adapter=new future_Adapter(getContext(),data);//Send data to the future Adapter
+            List<Model> data_convert=new ArrayList<>();
+            for (int i=data.size()-1;i>0;i--){
+                data_convert.add(data.get(i));
+            }
+            adapter=new future_Adapter(getContext(),data_convert);//Send data to the future Adapter
             future_event_list.setAdapter(adapter);//Show these data on the recycler view
         });
 

@@ -4,15 +4,20 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_marginLeft="2dp"
         android:layout_marginTop="6dp"
         android:layout_marginRight="4dp"
         android:elevation="5dp"
-        android:backgroundTint="#6aecdd"
         app:cardCornerRadius="10dp"
         android:layout_height="90dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_money"
+            android:minHeight="90dp">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -23,6 +28,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1"
+        android:textColor="#fff"
+        android:layout_marginLeft="8dp"
         android:layout_weight="1"
         android:id="@+id/money_no_id"
         />
@@ -84,7 +91,7 @@
                 android:layout_weight="1"
                 android:src="@drawable/ic_delete_black_24dp"
                 />
-        </LinearLayout>
+        </LinearLayout></RelativeLayout>
     </android.support.v7.widget.CardView>
 
 </RelativeLayout>

@@ -8,7 +8,7 @@ public interface news_api {
     Call<news_model> getlaliga();
     @GET("v2/everything?q=manchesterunited&from=publishedAt&apiKey=129a336ade1d43efbecf53de7735f8fb")
     Call<news_model> getManu();
-    @GET("v2/everything?q=football&from=publishedAt&apiKey=129a336ade1d43efbecf53de7735f8fb")
+    @GET("v2/everything?q=premierleague&from=publishedAt&apiKey=129a336ade1d43efbecf53de7735f8fb")
     Call<news_model> getPremier();
 
 }

@@ -4,15 +4,22 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+import android.util.Log;
+import com.example.aspire.photo_retrofit.Noti.Noti_event;
 
+import java.util.concurrent.TimeUnit;
+
+import androidx.work.Constraints;
+import androidx.work.Data;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.PeriodicWorkRequest;
+import androidx.work.WorkManager;
 
 
 public class Welcome extends AppCompatActivity {
     private final int SPLASH_DISPLAY_LENGTH = 1000;
+    PeriodicWorkRequest periodicWorkRequest;
+    OneTimeWorkRequest simpleRequest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,5 +68,30 @@ public class Welcome extends AppCompatActivity {
                 Welcome.this.finish();
             }
         }, SPLASH_DISPLAY_LENGTH);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Data data = new Data.Builder()
+                .putString(MainActivity.EXTRA_TITLE, "Aung Htet!")
+                .putString(MainActivity.EXTRA_TEXT, "I am Optimus Prime")
+                .build();
+        Constraints constraints = new Constraints.Builder()
+                .setRequiresCharging(true)
+                .build();
+        simpleRequest= new OneTimeWorkRequest.Builder(Noti_event.class)
+                .setInputData(data)
+                .setConstraints(constraints)
+                .addTag("simple_work")
+                .build();
+        periodicWorkRequest= new PeriodicWorkRequest.Builder(Noti_event.class, 10, TimeUnit.SECONDS)
+                .addTag("periodic_work")
+                .build();
+        WorkManager.getInstance().enqueue(periodicWorkRequest);
+        Log.d("WorkManager ","Ok ");
+
     }
 }

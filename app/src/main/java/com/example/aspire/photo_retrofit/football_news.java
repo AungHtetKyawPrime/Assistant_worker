@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.aspire.photo_retrofit.Fragment.news_posts_event_fragment;
@@ -27,7 +28,8 @@ public class football_news extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         news_view.setHasFixedSize(true);
         news_view.setLayoutManager(linearLayoutManager);
-        news_post= news_posts_event_fragment.premier;
+        news_post= news_posts_event_fragment.manu;
+        Log.d("FootBall News",news_post.size()+"");
         if (news_post.size()>0){
             news_adapter=new news_adapter(getApplicationContext(),news_post);}
         else {

@@ -1,6 +1,7 @@
 package com.example.aspire.photo_retrofit.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import com.example.aspire.photo_retrofit.memory_Data.Memory_DataBae;
 import com.example.aspire.photo_retrofit.memory_Data.Memory_Model;
 
 import java.util.List;
+import java.util.Random;
 
 
 public class memory_Adapter extends RecyclerView.Adapter<ViewHolder>{
@@ -39,7 +41,10 @@ public class memory_Adapter extends RecyclerView.Adapter<ViewHolder>{
 
         holder.memory_no_id.setText("စဥ္"+(++position));
         holder.memory_content.setText(""+event.getContent());
+        holder.memory_color.setBackgroundColor(getRandomColor());
+        Log.d("Color ",getRandomColor()+"");
         Log.i("adapter data => ","ok");
+
         holder.memory_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +72,13 @@ public class memory_Adapter extends RecyclerView.Adapter<ViewHolder>{
     public int getItemCount() {
         return event_list.size();
     }
-
+    public int getRandomColor(){
+        Random rand = new Random();
+        int r = rand.nextInt(255);
+        int g = rand.nextInt(255);
+        int b = rand.nextInt(255);
+        int randomColor = Color.rgb(r,g,b);
+        return randomColor;
+    }
 
 }

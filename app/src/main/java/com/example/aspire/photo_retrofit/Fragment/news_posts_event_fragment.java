@@ -226,7 +226,7 @@ public class news_posts_event_fragment extends Fragment {
             public void onResponse(Call<news_model> call, Response<news_model> response) {
                 news_model laliga_model=response.body();
                 laliga=laliga_model.news_data;
-                football_post.addAll(laliga);
+                //football_post.addAll(laliga);
                 Log.d("Ball ","Laliga "+laliga.size());
             }
 
@@ -241,7 +241,7 @@ public class news_posts_event_fragment extends Fragment {
             public void onResponse(Call<news_model> call, Response<news_model> response) {
                 news_model manu_model=response.body();
                 manu=manu_model.news_data;
-                football_post.addAll(manu);
+                //football_post.addAll(manu);
                 Log.d("Ball ","Manu "+manu.size());
             }
 
@@ -256,7 +256,7 @@ public class news_posts_event_fragment extends Fragment {
             public void onResponse(Call<news_model> call, Response<news_model> response) {
                 news_model premier_model=response.body();
                 premier=premier_model.news_data;
-                football_post.addAll(premier);
+                //football_post.addAll(premier);
                 Log.d("Ball ","primier "+premier.size()+" + "+manu.size()+" + "+laliga.size()+" - "+football_post.size());
             }
 

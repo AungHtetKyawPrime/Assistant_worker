@@ -2,45 +2,56 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="90dp"
+        android:minHeight="100dp"
         android:layout_margin="4dp"
         app:cardCornerRadius="5dp"
-        android:backgroundTint="#f599f4"
-        app:cardElevation="4dp">
+        app:cardElevation="4dp"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal"
+            android:minHeight="100dp"
+            android:orientation="vertical"
+            android:background="@drawable/background_future"
             >
             <TextView
                 android:id="@+id/future_no_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1"
-                android:textColor="#fff"
+                android:textColor="#5A5959"
                 android:textStyle="bold"
-                android:layout_margin="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
                 />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            >
+
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_weight="9">
+                android:layout_weight="1"
+                >
 
                 <TextView
                     android:id="@+id/future_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2nd July, 2018"
-                    android:textColor="#fff"
+                    android:textColor="#5A5959"
                     android:textStyle="bold"
                     android:layout_marginTop="3dp"
-
                     android:textSize="16dp"/>
 
 
@@ -49,13 +60,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Testing the font"
-                    android:textColor="#fff"
+                    android:textColor="#5A5959"
                     android:textStyle="bold"
                     android:textSize="18dp"/>
 
 
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
             <ImageView
                 android:id="@+id/content-update"
                 android:layout_width="0dp"
@@ -73,7 +89,8 @@
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_delete_black_24dp"
                 android:layout_gravity="center"/>
-
+            </LinearLayout>
+        </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

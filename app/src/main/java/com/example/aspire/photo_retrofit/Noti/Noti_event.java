@@ -63,7 +63,6 @@ public class Noti_event extends Worker {
 
         setOutputData(output);
 
-
         return Result.SUCCESS;
     }
     public void sendNotification(String title, String message) {

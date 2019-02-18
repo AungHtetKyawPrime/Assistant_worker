@@ -37,8 +37,8 @@ public class future_Adapter extends RecyclerView.Adapter<ViewHolder>{
         final Model event = messageList.get(position);
 
 
-        holder.future_no_id.setText("စဥ္"+(++position));
-        holder.future_date.setText("|   ေန႔စြဲ   "+event.getDate());
+        holder.future_no_id.setText(" Event No"+(++position));
+        holder.future_date.setText("ေန႔စြဲ   "+event.getDate());
         holder.future_event.setText("အစီအစဥ္\uD83D\uDC4C  "+event.getContent());
         Log.i("adapter data => ","ok");
         holder.delete.setOnClickListener(new View.OnClickListener() {

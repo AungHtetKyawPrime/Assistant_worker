@@ -1,15 +1,18 @@
 package com.example.aspire.photo_retrofit;
 
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ViewHolder extends RecyclerView.ViewHolder {
     public TextView future_no_id,future_date,future_event,like,heart,seen,animal,news_title,news_author,news_content
             ,memory_no_id,memory_content,money_id,money_date,money_event,money_income,money_outcome;
     public ImageView update,delete,post,news_img,memory_update,memory_delete,money_update,money_delete;
+    public RelativeLayout memory_color;
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
         //for future events
@@ -33,6 +36,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         memory_no_id=(TextView)itemView.findViewById(R.id.memory_no_id);
         memory_delete=(ImageView)itemView.findViewById(R.id.memory_content_delete);
         memory_update=(ImageView)itemView.findViewById(R.id.memory_content_update);
+        memory_color=(RelativeLayout) itemView.findViewById(R.id.memory_color);
         //for money view
         money_id=(TextView)itemView.findViewById(R.id.money_no_id);
         money_date=(TextView)itemView.findViewById(R.id.money_date);

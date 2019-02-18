@@ -8,33 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.Toast;
-
 import com.example.aspire.photo_retrofit.Fragment.future_event_fragment;
 import com.example.aspire.photo_retrofit.Fragment.memory_event_fragment;
 import com.example.aspire.photo_retrofit.Fragment.money_event_fragment;
 import com.example.aspire.photo_retrofit.Fragment.news_posts_event_fragment;
-import com.example.aspire.photo_retrofit.Noti.Noti_event;
-
-
-import java.util.concurrent.TimeUnit;
-
-
-import androidx.work.Constraints;
-import androidx.work.Data;
-import androidx.work.OneTimeWorkRequest;
-import androidx.work.PeriodicWorkRequest;
-import androidx.work.WorkManager;
 import hari.floatingtoast.FloatingToast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ListView mListView;
-    ProgressBar myProgressBar;
-    PeriodicWorkRequest periodicWorkRequest;
-    OneTimeWorkRequest simpleRequest;
+
     public static final String EXTRA_TITLE = "title";
     public static final String EXTRA_TEXT = "text";
 
@@ -50,30 +32,12 @@ public class MainActivity extends AppCompatActivity {
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         loadFragment(new future_event_fragment());
-        periodicWorkRequest= new PeriodicWorkRequest.Builder(Noti_event.class, 6, TimeUnit.SECONDS)
-                .addTag("periodic_work")
-                .build();
-        Data data = new Data.Builder()
-                .putString(MainActivity.EXTRA_TITLE, "Aung Htet!")
-                .putString(MainActivity.EXTRA_TEXT, "I am Optimus Prime")
-                .build();
-        Constraints constraints = new Constraints.Builder()
-                .setRequiresCharging(true)
-                .build();
-        simpleRequest= new OneTimeWorkRequest.Builder(Noti_event.class)
-                .setInputData(data)
-                .setConstraints(constraints)
-                .addTag("simple_work")
-                .build();
 
-        Noti_event();
+
 
     }
 
-    private void Noti_event() {
-        WorkManager.getInstance().enqueue(periodicWorkRequest);
-        Log.d(" WorkManager Aung  ","Ok  ");
-    }
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
